@@ -1,9 +1,4 @@
-import { 
-  Admin, 
-  DataProvider, 
-  Loading, 
-  Resource
-} from "react-admin";
+import { Admin, DataProvider, Loading, Resource} from "react-admin";
 import { CssBaseline } from "@mui/material";
 import { useEffect, useState } from "react";
 import buildHasuraProvider from 'ra-data-hasura';

@@ -37397,7 +37397,7 @@ var handler = async (event, context) => {
       "x-hasura-default-role": "admin",
       "x-hasura-user-id": (_a = data.insert_admin_one) == null ? void 0 : _a.id
     }
-  }, "myjwtsecret");
+  }, "XSploYZNFOXvxkuxZJtPwacMkwtBykZP");
   return {
     statusCode: 200,
     body: JSON.stringify({ accessToken })

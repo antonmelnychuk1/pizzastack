@@ -43,7 +43,7 @@ const handler: Handler = async (event, context) => {
       "x-hasura-user-id": data.insert_admin_one?.id,
       },
     },
-    'myjwtsecret'
+    'XSploYZNFOXvxkuxZJtPwacMkwtBykZP'
   );
 
   return {

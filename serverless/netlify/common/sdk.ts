@@ -27,6 +27,19 @@ export type AdminRegisterOutput = {
   accessToken: Scalars['String'];
 };
 
+/** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
+export type Int_Comparison_Exp = {
+  _eq?: InputMaybe<Scalars['Int']>;
+  _gt?: InputMaybe<Scalars['Int']>;
+  _gte?: InputMaybe<Scalars['Int']>;
+  _in?: InputMaybe<Array<Scalars['Int']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']>;
+  _lt?: InputMaybe<Scalars['Int']>;
+  _lte?: InputMaybe<Scalars['Int']>;
+  _neq?: InputMaybe<Scalars['Int']>;
+  _nin?: InputMaybe<Array<Scalars['Int']>>;
+};
+
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
 export type String_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['String']>;
@@ -219,8 +232,7 @@ export enum Cursor_Ordering {
 /** columns and relationships of "menu" */
 export type Menu = {
   __typename?: 'menu';
-  SKU?: Maybe<Scalars['numeric']>;
-  id: Scalars['uuid'];
+  id: Scalars['Int'];
   image: Scalars['String'];
   ingredients: Scalars['String'];
   price: Scalars['numeric'];
@@ -261,18 +273,17 @@ export type Menu_Aggregate_FieldsCountArgs = {
 /** aggregate avg on columns */
 export type Menu_Avg_Fields = {
   __typename?: 'menu_avg_fields';
-  SKU?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
   weight?: Maybe<Scalars['Float']>;
 };
 
 /** Boolean expression to filter rows from the table "menu". All fields are combined with a logical 'AND'. */
 export type Menu_Bool_Exp = {
-  SKU?: InputMaybe<Numeric_Comparison_Exp>;
   _and?: InputMaybe<Array<Menu_Bool_Exp>>;
   _not?: InputMaybe<Menu_Bool_Exp>;
   _or?: InputMaybe<Array<Menu_Bool_Exp>>;
-  id?: InputMaybe<Uuid_Comparison_Exp>;
+  id?: InputMaybe<Int_Comparison_Exp>;
   image?: InputMaybe<String_Comparison_Exp>;
   ingredients?: InputMaybe<String_Comparison_Exp>;
   price?: InputMaybe<Numeric_Comparison_Exp>;
@@ -288,15 +299,14 @@ export enum Menu_Constraint {
 
 /** input type for incrementing numeric columns in table "menu" */
 export type Menu_Inc_Input = {
-  SKU?: InputMaybe<Scalars['numeric']>;
+  id?: InputMaybe<Scalars['Int']>;
   price?: InputMaybe<Scalars['numeric']>;
   weight?: InputMaybe<Scalars['numeric']>;
 };
 
 /** input type for inserting data into table "menu" */
 export type Menu_Insert_Input = {
-  SKU?: InputMaybe<Scalars['numeric']>;
-  id?: InputMaybe<Scalars['uuid']>;
+  id?: InputMaybe<Scalars['Int']>;
   image?: InputMaybe<Scalars['String']>;
   ingredients?: InputMaybe<Scalars['String']>;
   price?: InputMaybe<Scalars['numeric']>;
@@ -307,8 +317,7 @@ export type Menu_Insert_Input = {
 /** aggregate max on columns */
 export type Menu_Max_Fields = {
   __typename?: 'menu_max_fields';
-  SKU?: Maybe<Scalars['numeric']>;
-  id?: Maybe<Scalars['uuid']>;
+  id?: Maybe<Scalars['Int']>;
   image?: Maybe<Scalars['String']>;
   ingredients?: Maybe<Scalars['String']>;
   price?: Maybe<Scalars['numeric']>;
@@ -319,8 +328,7 @@ export type Menu_Max_Fields = {
 /** aggregate min on columns */
 export type Menu_Min_Fields = {
   __typename?: 'menu_min_fields';
-  SKU?: Maybe<Scalars['numeric']>;
-  id?: Maybe<Scalars['uuid']>;
+  id?: Maybe<Scalars['Int']>;
   image?: Maybe<Scalars['String']>;
   ingredients?: Maybe<Scalars['String']>;
   price?: Maybe<Scalars['numeric']>;
@@ -346,7 +354,6 @@ export type Menu_On_Conflict = {
 
 /** Ordering options when selecting data from "menu". */
 export type Menu_Order_By = {
-  SKU?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
   image?: InputMaybe<Order_By>;
   ingredients?: InputMaybe<Order_By>;
@@ -357,13 +364,11 @@ export type Menu_Order_By = {
 
 /** primary key columns input for table: menu */
 export type Menu_Pk_Columns_Input = {
-  id: Scalars['uuid'];
+  id: Scalars['Int'];
 };
 
 /** select columns of table "menu" */
 export enum Menu_Select_Column {
-  /** column name */
-  Sku = 'SKU',
   /** column name */
   Id = 'id',
   /** column name */
@@ -380,8 +385,7 @@ export enum Menu_Select_Column {
 
 /** input type for updating data in table "menu" */
 export type Menu_Set_Input = {
-  SKU?: InputMaybe<Scalars['numeric']>;
-  id?: InputMaybe<Scalars['uuid']>;
+  id?: InputMaybe<Scalars['Int']>;
   image?: InputMaybe<Scalars['String']>;
   ingredients?: InputMaybe<Scalars['String']>;
   price?: InputMaybe<Scalars['numeric']>;
@@ -392,7 +396,7 @@ export type Menu_Set_Input = {
 /** aggregate stddev on columns */
 export type Menu_Stddev_Fields = {
   __typename?: 'menu_stddev_fields';
-  SKU?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
   weight?: Maybe<Scalars['Float']>;
 };
@@ -400,7 +404,7 @@ export type Menu_Stddev_Fields = {
 /** aggregate stddev_pop on columns */
 export type Menu_Stddev_Pop_Fields = {
   __typename?: 'menu_stddev_pop_fields';
-  SKU?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
   weight?: Maybe<Scalars['Float']>;
 };
@@ -408,7 +412,7 @@ export type Menu_Stddev_Pop_Fields = {
 /** aggregate stddev_samp on columns */
 export type Menu_Stddev_Samp_Fields = {
   __typename?: 'menu_stddev_samp_fields';
-  SKU?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
   weight?: Maybe<Scalars['Float']>;
 };
@@ -423,8 +427,7 @@ export type Menu_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Menu_Stream_Cursor_Value_Input = {
-  SKU?: InputMaybe<Scalars['numeric']>;
-  id?: InputMaybe<Scalars['uuid']>;
+  id?: InputMaybe<Scalars['Int']>;
   image?: InputMaybe<Scalars['String']>;
   ingredients?: InputMaybe<Scalars['String']>;
   price?: InputMaybe<Scalars['numeric']>;
@@ -435,15 +438,13 @@ export type Menu_Stream_Cursor_Value_Input = {
 /** aggregate sum on columns */
 export type Menu_Sum_Fields = {
   __typename?: 'menu_sum_fields';
-  SKU?: Maybe<Scalars['numeric']>;
+  id?: Maybe<Scalars['Int']>;
   price?: Maybe<Scalars['numeric']>;
   weight?: Maybe<Scalars['numeric']>;
 };
 
 /** update columns of table "menu" */
 export enum Menu_Update_Column {
-  /** column name */
-  Sku = 'SKU',
   /** column name */
   Id = 'id',
   /** column name */
@@ -470,7 +471,7 @@ export type Menu_Updates = {
 /** aggregate var_pop on columns */
 export type Menu_Var_Pop_Fields = {
   __typename?: 'menu_var_pop_fields';
-  SKU?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
   weight?: Maybe<Scalars['Float']>;
 };
@@ -478,7 +479,7 @@ export type Menu_Var_Pop_Fields = {
 /** aggregate var_samp on columns */
 export type Menu_Var_Samp_Fields = {
   __typename?: 'menu_var_samp_fields';
-  SKU?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
   weight?: Maybe<Scalars['Float']>;
 };
@@ -486,7 +487,7 @@ export type Menu_Var_Samp_Fields = {
 /** aggregate variance on columns */
 export type Menu_Variance_Fields = {
   __typename?: 'menu_variance_fields';
-  SKU?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
   weight?: Maybe<Scalars['Float']>;
 };
@@ -553,7 +554,7 @@ export type Mutation_RootDelete_MenuArgs = {
 
 /** mutation root */
 export type Mutation_RootDelete_Menu_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars['Int'];
 };
 
 
@@ -714,7 +715,7 @@ export type Query_RootMenu_AggregateArgs = {
 
 
 export type Query_RootMenu_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars['Int'];
 };
 
 export type Subscription_Root = {
@@ -787,7 +788,7 @@ export type Subscription_RootMenu_AggregateArgs = {
 
 
 export type Subscription_RootMenu_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars['Int'];
 };
 
 
