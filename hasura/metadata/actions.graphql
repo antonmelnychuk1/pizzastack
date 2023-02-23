@@ -1,6 +1,6 @@
 type Query {
   adminLogin(
-    arg1: AdminLoginInput!
+    admin: AdminLoginInput!
   ): AdminLoginOutput
 }
 
