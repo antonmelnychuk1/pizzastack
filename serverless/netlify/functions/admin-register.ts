@@ -23,7 +23,9 @@ const handler: Handler = async (event, context) => {
   const input: AdminRegisterInput = JSON.parse(body!).input.admin;
   const sdk = getSdk(new GraphQLClient("http://localhost:8080/v1/graphql"));
 
-  const password = crypto.pbkdf2Sync(input.password, "mysaltsecret", 1000, 64, "sha512").toString("hex");
+  const password = crypto
+    .pbkdf2Sync(input.password, "mysaltsecret", 1000, 64, "sha512")
+    .toString("hex");
 
   const data = await sdk.InsertAdmin(
     {
